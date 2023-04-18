@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aerrajiy <aerrajiy@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aerrajiy <aerrajiy@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 21:23:11 by aerrajiy          #+#    #+#             */
-/*   Updated: 2023/04/18 00:01:06 by aerrajiy         ###   ########.fr       */
+/*   Updated: 2023/04/18 05:12:52 by aerrajiy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,8 @@ char	*split_line(char *saved)
 			new_line[i] = saved[i];
 			i++;
 		}
+		if (saved[i] == '\n')
+			new_line[i++] = '\n';
 		new_line[i] = '\0';
 	}
 	return (new_line);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aerrajiy <aerrajiy@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aerrajiy <aerrajiy@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 13:13:27 by mabahani          #+#    #+#             */
-/*   Updated: 2023/04/17 23:59:39 by aerrajiy         ###   ########.fr       */
+/*   Updated: 2023/04/18 04:59:09 by aerrajiy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,10 +74,8 @@ char	**ft_split(char *str, char c)
 {
 	char	**ptr;
 	int		i;
-	int		j;
 	int		wc;
 
-	j = 0;
 	i = 0;
 	if (str == NULL)
 		return (ptr = NULL);

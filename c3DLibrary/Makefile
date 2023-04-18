@@ -6,7 +6,7 @@
 #    By: aerrajiy <aerrajiy@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/20 21:30:37 by mabahani          #+#    #+#              #
-#    Updated: 2023/04/18 01:13:02 by aerrajiy         ###   ########.fr        #
+#    Updated: 2023/04/18 23:08:40 by aerrajiy         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ CC = cc
 
 CFLAGS = -Wall -Wextra -Werror
 
-LibFt_SRC = lib/ft_bzero.c lib/ft_isalnum.c lib/ft_isascii.c lib/ft_isprint.c lib/ft_memchr.c lib/ft_memcpy.c lib/ft_memset.c  lib/ft_strchr.c lib/ft_striteri.c lib/ft_strlcat.c lib/ft_strlen.c \
+LibFt_SRC = lib/ft_bzero.c lib/ft_bchar.c lib/ft_isalnum.c lib/ft_isascii.c lib/ft_isprint.c lib/ft_memchr.c lib/ft_memcpy.c lib/ft_memset.c  lib/ft_strchr.c lib/ft_striteri.c lib/ft_strlcat.c lib/ft_strlen.c \
       lib/ft_strncmp.c lib/ft_strcmp.c lib/ft_strrchr.c lib/ft_substr.c lib/ft_toupper.c lib/ft_atoi.c lib/ft_calloc.c lib/ft_isalpha.c lib/ft_isdigit.c lib/ft_itoa.c lib/ft_memcmp.c lib/ft_memmove.c \
       lib/ft_split.c lib/ft_strdup.c lib/ft_strjoin.c lib/ft_strlcpy.c lib/ft_strmapi.c lib/ft_strnstr.c lib/ft_strtrim.c lib/ft_tolower.c lib/ft_putchar_fd.c lib/ft_putstr_fd.c lib/ft_putendl_fd.c \
       lib/ft_putnbr_fd.c

@@ -6,13 +6,14 @@
 /*   By: aerrajiy <aerrajiy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 16:27:51 by mabahani          #+#    #+#             */
-/*   Updated: 2023/04/18 01:10:32 by aerrajiy         ###   ########.fr       */
+/*   Updated: 2023/04/18 23:08:24 by aerrajiy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
+# include <stdint.h>
 # include <stdlib.h>
 # include <string.h>
 # include <stdio.h>
@@ -29,6 +30,7 @@ char	*ft_strdup(const char *s1);
 size_t	ft_strlen(char const *str);
 int		ft_atoi(const char *str);
 void	ft_bzero(void *s, size_t n);
+void	ft_bchar(void *s, char set,size_t n);
 void	*ft_calloc(size_t count, size_t size);
 int		ft_isalnum(int c);
 int		ft_isalpha(int c);

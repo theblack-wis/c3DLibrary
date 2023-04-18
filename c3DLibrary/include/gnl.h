@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   gnl.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aerrajiy <aerrajiy@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aerrajiy <aerrajiy@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 00:00:33 by aerrajiy          #+#    #+#             */
-/*   Updated: 2023/04/18 01:08:32 by aerrajiy         ###   ########.fr       */
+/*   Updated: 2023/04/18 05:01:37 by aerrajiy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,10 @@
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 1
+# endif
+
+# ifndef OPEN_MAX
+#  define OPEN_MAX 1024
 # endif
 
 char	*ft_strjoin_gnl(char *s1, char *s2);
