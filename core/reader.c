@@ -6,14 +6,13 @@
 /*   By: aerrajiy <aerrajiy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 01:38:55 by aerrajiy          #+#    #+#             */
-/*   Updated: 2023/04/20 02:28:37 by aerrajiy         ###   ########.fr       */
+/*   Updated: 2023/04/20 02:34:39 by aerrajiy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-void    printParser(t_parser *parser)
-{
+void    printParser(t_parser *parser){
     ft_printf(1, "Textures: \n");
     ft_printf(1, "%s \n%s \n%s \n%s\n\n", parser->texture[0], parser->texture[1], parser->texture[2], parser->texture[3]);
     ft_printf(1, "Colors: \n");
