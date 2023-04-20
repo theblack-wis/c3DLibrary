@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "lib.h": "c",
+        "gnl.h": "c",
+        "ft_printf.h": "c"
+    }
+}

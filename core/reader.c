@@ -6,23 +6,11 @@
 /*   By: aerrajiy <aerrajiy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 01:38:55 by aerrajiy          #+#    #+#             */
-/*   Updated: 2023/04/18 23:20:00 by aerrajiy         ###   ########.fr       */
+/*   Updated: 2023/04/20 02:28:37 by aerrajiy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
-
-char *remove_new_line(char *str)
-{
-    int i = 0;
-    while (str[i])
-    {
-        if (str[i] == '\n')
-            str[i] = '\0';
-        i++;
-    }
-    return (str);
-}
 
 void    printParser(t_parser *parser)
 {
@@ -34,27 +22,21 @@ void    printParser(t_parser *parser)
 
 void    printMap(t_parser *parser)
 {
-    int i = 0;
-    int j = 0;
-    
-    ft_printf(1, "Map: \n");
-
-    while (parser->map[i])
+    int j, i = 0;
+    ft_printf(1, "Map :\n");
+    while (parser->map->map[i])
     {
         j = 0;
-        while (parser->map[i][j])
-        {
-            ft_printf(1, "%c", parser->map[i][j]);
-            j++;
-        }
+        while (parser->map->map[i][j])
+            ft_printf(1, "%c", parser->map->map[i][j++]);
         ft_printf(1, "\n");
         i++;
     }
 }
 
-int main(){
+int main(void)
+{
     t_parser *parser;
-    
     parser = malloc(sizeof(t_parser));
     read_texture_color("map/map.cub", &parser);
     printParser(parser);
@@ -62,6 +44,7 @@ int main(){
     printMap(parser);
     free_me(parser->texture);
     free_me(parser->colors);
-    free_me(parser->map);
+    free_me(parser->map->map);
+    free(parser->map);
     free(parser);
 }

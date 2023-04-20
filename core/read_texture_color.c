@@ -12,28 +12,18 @@
 
 #include "header.h"
 
-int check_structur(char *data)
+void    texture_color_Filter(t_parser *parser)
 {
-    char all[9][3] = {"NO", "SO", "WE", "EA", "F", "C"};
-    int i = 0;
-    while (i < 6)
-    {
-        if (!ft_strcmp(data, all[i]))
-            return (1);
-        i++;
+    if (table_size(parser->texture) != 4){
+        ft_printf(2, "Error in texture\n");
+        exit(1);
     }
-    return (0);
+
+    if (table_size(parser->colors) != 2){
+        ft_printf(2, "Error in color\n");
+        exit(1);
+    }
 }
-
-int table_size(char **table)
-{
-    int i = 0;
-    while (table[i])
-        i++;
-    return (i);
-}
-
-
 
 void    read_texture_color(char *file, t_parser **parser)
 {
@@ -41,6 +31,7 @@ void    read_texture_color(char *file, t_parser **parser)
 
     data.texture_count = 0;
     data.color_count = 0;
+    
     (*parser)->texture = ft_calloc(1, sizeof(char *) * 5);
     (*parser)->colors = ft_calloc(1, sizeof(char *) * 3);
     data.fd = open(file, O_RDONLY);
@@ -65,18 +56,5 @@ void    read_texture_color(char *file, t_parser **parser)
         free_me(data.data);
     }
     close(data.fd);
-    check_texture_color(*parser);
-}
-
-void    check_texture_color(t_parser *parser)
-{
-    if (table_size(parser->texture) != 4){
-        ft_printf(2, "Error in texture\n");
-        exit(1);
-    }
-
-    if (table_size(parser->colors) != 2){
-        ft_printf(2, "Error in color\n");
-        exit(1);
-    }
+    texture_color_Filter(*parser);
 }

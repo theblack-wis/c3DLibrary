@@ -18,13 +18,17 @@ int count_line_number(char *file)
     int count;
     char *line;
     char **data;
+    int flag;
 
+    flag = 0;
     count = 0;
     fd = open(file, O_RDONLY);
     while ((line = get_next_line(fd)))
     {
         data = ft_split(line, ' ');
-        if (check_structur(data[0]) == 0)
+        if (data[0][0] != '\n' && !check_structur(data[0]))
+            flag = 1;
+        if (flag == 1)
             count++;
         free(line);
         free_me(data);
@@ -54,49 +58,68 @@ int who_is_the_big_line(char *file)
     close(fd);
     return (max_len);
 }
-void put_char(char *line, int size)
-{
-    int i;
-
-    i = 0;
-    while (i < size)
-    {
-        if (line[i] == '\n')
-            line[i] = 'x';
-        i++;
-    }
-}
 
 char    *allocat_saver(char *line, int size)
 {
     char *saver;
 
     saver = ft_calloc(1, size + 1);
-    ft_bchar(saver, 'x', size);
     ft_strlcpy(saver, line, size + 1);
     return (saver);
+}
+
+void    map_Filter(t_map *map)
+{
+    int i;
+    int j;
+
+    i = 0;
+    j = 0;
+    if (has_empty_line(map->map) || line_has_zero(map->map[0]) || line_has_zero(map->map[map->row - 1])) {
+        ft_printf(2, "map error 1\n");
+        exit(1);
+    }
+    while (map->map[i])
+    {
+        j = 0;
+        while (map->map[i][j]){
+            if (is_player_or_space(map->map[i][j])){
+                if (j == 0 || !map->map[i - 1][j] || !map->map[i + 1][j] || !map->map[i][j + 1]){
+                    ft_printf(2, "map error 2\n");
+                    exit(1);
+                }
+            }
+            j++;
+        }
+        i++;
+    }
 }
 
 void    read_map(char *file, t_parser **parser)
 {
     t_reading   data;
-    int         max_len;
-    int         line_number;
     int         map_count;
+    int         flag;
 
+    (*parser)->map = ft_calloc(1, sizeof(t_map));
     map_count = 0;
-    line_number = count_line_number(file);
-    max_len = who_is_the_big_line(file);
+    (*parser)->map->row = count_line_number(file);
+    (*parser)->map->col = who_is_the_big_line(file);
+    flag = 0;
 
-    (*parser)->map = ft_calloc(1, sizeof(char *) * (line_number + 1));
-    (*parser)->map[line_number] = NULL;
+    (*parser)->map->map = ft_calloc(1, sizeof(char *) * ((*parser)->map->row + 1));
+    (*parser)->map->map[(*parser)->map->row] = NULL;
     data.fd = open(file, O_RDONLY);
     while ((data.line = get_next_line(data.fd)))
     {
         data.data = ft_split(data.line, ' ');
         if (data.data[0][0] != '\n' && !check_structur(data.data[0]))
-            (*parser)->map[map_count++] = allocat_saver(remove_new_line(data.line), max_len);
+            flag = 1;
+
+        if (flag == 1)
+            (*parser)->map->map[map_count++] = allocat_saver(remove_new_line(data.line), (*parser)->map->col);
         free(data.line);
         free_me(data.data);
     }
+    map_Filter((*parser)->map);
 }
