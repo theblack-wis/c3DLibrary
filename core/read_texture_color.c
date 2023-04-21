@@ -56,5 +56,4 @@ void    read_texture_color(char *file, t_parser **parser)
         free_me(data.data);
     }
     close(data.fd);
-    texture_color_Filter(*parser);
 }

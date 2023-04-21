@@ -12,6 +12,12 @@
 
 #include "header.h"
 
+void ft_error(const char *pointer, char *str)
+{
+    ft_printf(2, pointer, str);
+    exit(1);
+}
+
 int count_line_number(char *file)
 {
     int fd;
@@ -75,20 +81,23 @@ void    map_Filter(t_map *map)
 
     i = 0;
     j = 0;
-    if (has_empty_line(map->map) || line_has_zero(map->map[0]) || line_has_zero(map->map[map->row - 1])) {
-        ft_printf(2, "map error 1\n");
-        exit(1);
-    }
+
+    if (has_empty_line(map->map) || line_has_zero(map->map[0]) || line_has_zero(map->map[map->row - 1]))
+        ft_error("map error 1 \n", NULL);
+
     while (map->map[i])
     {
         j = 0;
         while (map->map[i][j]){
-            if (is_player_or_space(map->map[i][j])){
-                if (j == 0 || !map->map[i - 1][j] || !map->map[i + 1][j] || !map->map[i][j + 1]){
-                    ft_printf(2, "map error 2\n");
+            if (!is_player_or_space(map->map[i][j]) && map->map[i][j] != '1' && map->map[i][j] != ' ' && map->map[i][j] != '\t')
+                ft_error("map error 2 \n", NULL);
+            if (is_player_or_space(map->map[i][j]))
+
+                if (j == 0 || !map->map[i - 1][j] || !map->map[i + 1][j] || !map->map[i][j + 1] || map->map[i - 1][j] == ' ' || map->map[i + 1][j] == ' ' || map->map[i][j + 1] == ' ')
+                {
+                    ft_printf(2, "map error 3 : [%d] | [%d] \n", i, j);
                     exit(1);
                 }
-            }
             j++;
         }
         i++;
@@ -101,7 +110,7 @@ void    read_map(char *file, t_parser **parser)
     int         map_count;
     int         flag;
 
-    (*parser)->map = ft_calloc(1, sizeof(t_map));
+    (*parser)->map = ft_calloc(1, sizeof(t_map));   
     map_count = 0;
     (*parser)->map->row = count_line_number(file);
     (*parser)->map->col = who_is_the_big_line(file);
@@ -121,5 +130,4 @@ void    read_map(char *file, t_parser **parser)
         free(data.line);
         free_me(data.data);
     }
-    map_Filter((*parser)->map);
 }

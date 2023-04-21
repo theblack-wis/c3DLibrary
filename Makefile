@@ -6,7 +6,7 @@
 #    By: aerrajiy <aerrajiy@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/18 01:47:00 by aerrajiy          #+#    #+#              #
-#    Updated: 2023/04/20 02:33:46 by aerrajiy         ###   ########.fr        #
+#    Updated: 2023/04/21 00:09:29 by aerrajiy         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,4 +39,5 @@ push:
 	git add .
 	git commit -m "$(MSG)"
 	git push
+
 re: fclean all
