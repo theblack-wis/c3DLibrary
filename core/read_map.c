@@ -81,10 +81,9 @@ void    map_Filter(t_map *map)
 
     i = 0;
     j = 0;
-
+    
     if (has_empty_line(map->map) || line_has_zero(map->map[0]) || line_has_zero(map->map[map->row - 1]))
         ft_error("map error 1 \n", NULL);
-
     while (map->map[i])
     {
         j = 0;
@@ -92,7 +91,7 @@ void    map_Filter(t_map *map)
             if (!is_player_or_space(map->map[i][j]) && map->map[i][j] != '1' && map->map[i][j] != ' ' && map->map[i][j] != '\t')
                 ft_error("map error 2 \n", NULL);
             if (is_player_or_space(map->map[i][j]))
-
+            
                 if (j == 0 || !map->map[i - 1][j] || !map->map[i + 1][j] || !map->map[i][j + 1] || map->map[i - 1][j] == ' ' || map->map[i + 1][j] == ' ' || map->map[i][j + 1] == ' ')
                 {
                     ft_printf(2, "map error 3 : [%d] | [%d] \n", i, j);
