@@ -6,11 +6,11 @@
 /*   By: aerrajiy <aerrajiy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/20 02:25:46 by aerrajiy          #+#    #+#             */
-/*   Updated: 2023/04/30 11:30:13 by aerrajiy         ###   ########.fr       */
+/*   Updated: 2023/04/30 12:02:51 by aerrajiy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../header.h"
+#include "../../include/header.h"
 
 char *remove_new_line(char *str)
 {

@@ -6,16 +6,16 @@
 #    By: aerrajiy <aerrajiy@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/18 01:47:00 by aerrajiy          #+#    #+#              #
-#    Updated: 2023/04/21 00:09:29 by aerrajiy         ###   ########.fr        #
+#    Updated: 2023/04/30 12:27:55 by aerrajiy         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = PARSE
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -g -fsanitize=address
+CFLAGS = -Wall -Wextra -Werror -g3 -fsanitize=address
 MSG = push default
 
-SRC = core/reader.c core/read_texture_color.c core/read_map.c core/verify_info/tools_check.c
+SRC = core/map_parsing/reader.c core/map_parsing/read_texture_color.c core/map_parsing/read_map.c core/map_parsing/verify_info/tools_check.c core/ray_casting/draw_tools/pixel_tools.c core/ray_casting/2dMapRendering.c
 OBJ = $(SRC:.c=.o)
 
 INCLUDES = -I c3DLibrary/include/
@@ -25,7 +25,7 @@ all: $(NAME)
 
 $(NAME): $(OBJ)
 	make -C c3DLibrary/
-	$(CC) $(CFLAGS) $(OBJ) $(c3DLibrary) -o $(NAME)
+	$(CC) -lmlx -framework OpenGL -framework AppKit $(CFLAGS) $(OBJ) $(c3DLibrary) -o $(NAME)
 
 clean:
 	rm -f $(OBJ)
