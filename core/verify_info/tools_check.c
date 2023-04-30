@@ -6,7 +6,7 @@
 /*   By: aerrajiy <aerrajiy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/20 02:25:46 by aerrajiy          #+#    #+#             */
-/*   Updated: 2023/04/21 00:55:26 by aerrajiy         ###   ########.fr       */
+/*   Updated: 2023/04/30 11:30:13 by aerrajiy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,5 +72,5 @@ int has_empty_line(char **map)
 
 int is_player_or_space(char elemnt)
 {
-    return (elemnt == 'N' || elemnt == 'S' || elemnt == 'W' || elemnt == 'W' || elemnt == '0');
+    return (elemnt == 'N' || elemnt == 'S' || elemnt == 'W' || elemnt == 'E' || elemnt == '0');
 }
