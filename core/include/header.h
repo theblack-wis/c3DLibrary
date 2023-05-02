@@ -16,7 +16,8 @@
 # include "../../c3DLibrary/include/lib.h"
 # include "../../c3DLibrary/include/ft_printf.h"
 # include "../../c3DLibrary/include/gnl.h"
-# include "mlx.h"
+# include <mlx.h>
+# include <math.h>
 
 typedef struct s_map
 {
@@ -51,11 +52,9 @@ typedef struct	s_img_draw {
 
 typedef struct s_player
 {
-	int x;
-	int y;
-
-	int move_x;
-	int move_y;
+	float x;
+	float y;
+	float pdx, pdy, pa;
 }   t_player;
 
 typedef struct s_vars
@@ -68,6 +67,12 @@ typedef struct s_vars
 	void *mlx;
 	void *win;
 }   t_vars;
+
+typedef struct s_point
+{
+    float x;
+    float y;
+}   t_point;
 
 // arrow buttons :
 # define KEY_UP 126
@@ -95,6 +100,7 @@ int 	is_player_or_space(char elemnt);
 // ray_casting_functions :
 void	my_mlx_pixel_put(t_img_draw *data, int x, int y, int color);
 void    init_window_image(t_vars **home);
+void 	drawGrid(int x, int y, int lenght,long color, t_vars **home);
 
 
 #endif

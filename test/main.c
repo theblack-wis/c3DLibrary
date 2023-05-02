@@ -27,8 +27,6 @@ void draw_line(t_point p1, t_point p2, void **mlx_ptr, void **win_ptr)
         mlx_pixel_put((*mlx_ptr), (*win_ptr), x, y, 0xFFFFFF);
         i++;
     }
-    
-    
 }
 
 int main()
