@@ -6,7 +6,7 @@
 #    By: aerrajiy <aerrajiy@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/20 21:30:37 by mabahani          #+#    #+#              #
-#    Updated: 2023/04/30 11:35:24 by aerrajiy         ###   ########.fr        #
+#    Updated: 2023/05/03 17:12:40 by aerrajiy         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = Cub_library
 
 CC = cc
 
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = 
 
 LibFt_SRC = lib/ft_bzero.c lib/ft_bchar.c lib/ft_isalnum.c lib/ft_isascii.c lib/ft_isprint.c lib/ft_memchr.c lib/ft_memcpy.c lib/ft_memset.c  lib/ft_strchr.c lib/ft_striteri.c lib/ft_strlcat.c lib/ft_strlen.c \
       lib/ft_strncmp.c lib/ft_strcmp.c lib/ft_strrchr.c lib/ft_substr.c lib/ft_toupper.c lib/ft_atoi.c lib/ft_calloc.c lib/ft_isalpha.c lib/ft_isdigit.c lib/ft_itoa.c lib/ft_memcmp.c lib/ft_memmove.c \

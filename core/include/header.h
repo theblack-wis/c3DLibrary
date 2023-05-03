@@ -54,7 +54,11 @@ typedef struct s_player
 {
 	float x;
 	float y;
-	float pdx, pdy, pa;
+
+	// player View :
+	float view_a;
+	float v_x;
+	float v_y;
 }   t_player;
 
 typedef struct s_vars
@@ -62,17 +66,13 @@ typedef struct s_vars
 	t_img_draw *img;
 	t_parser *parser;
 	t_player *player;
-	int win_width;
-	int win_height;
+
 	void *mlx;
 	void *win;
+	int win_height;
+	int	win_width;
 }   t_vars;
 
-typedef struct s_point
-{
-    float x;
-    float y;
-}   t_point;
 
 // arrow buttons :
 # define KEY_UP 126
@@ -101,6 +101,7 @@ int 	is_player_or_space(char elemnt);
 void	my_mlx_pixel_put(t_img_draw *data, int x, int y, int color);
 void    init_window_image(t_vars **home);
 void 	drawGrid(int x, int y, int lenght,long color, t_vars **home);
+void	initMapBackGro(t_vars **home);
 
 
 #endif

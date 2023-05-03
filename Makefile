@@ -6,13 +6,13 @@
 #    By: aerrajiy <aerrajiy@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/18 01:47:00 by aerrajiy          #+#    #+#              #
-#    Updated: 2023/05/02 15:36:19 by aerrajiy         ###   ########.fr        #
+#    Updated: 2023/05/03 17:12:34 by aerrajiy         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = PARSE
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -g3 -fsanitize=address
+CFLAGS =  -g3 -fsanitize=address
 MSG = push default
 
 SRC = core/map_parsing/reader.c core/map_parsing/read_texture_color.c core/map_parsing/read_map.c core/map_parsing/verify_info/tools_check.c core/ray_casting/draw_tools/pixel_tools.c core/ray_casting/2dMapRendering.c
